@@ -45,9 +45,9 @@
     "devDependencies": {
         "autoprefixer": "10.4.7",
         "beeper": "2.1.0",
-        "cssnano": "5.1.8",
-        "gscan": "4.28.0",
-        "gulp": "4.0.2",
+        "cssnano": "5.1.7",
+        "gscan": "4.27.0",
+        "gulp": "^4.0.2",
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "9.0.1",
         "gulp-sourcemaps": "3.0.0",
@@ -83,6 +83,44 @@
             "xl": {
                 "width": 2000
             }
+        },
+        "custom": {
+            "featured_section_title": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "newsletter": {
+                "type": "boolean",
+                "default": false
+            },
+            "tag_group_1": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "tag_group_2": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "tag_group_3": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "call_to_actions": {
+                "type": "boolean",
+                "default": true
+            },
+            "primary_cta_text": {
+                "type": "text",
+                "default": "Membership"
+            },
+            "enable_sign_in_link":": {
+                "type": "boolean",
+                "default": false
+            }
         }
+    },
+    "dependencies": {
+        "gulp-cli": "^2.3.0",
+        "gulp-sass": "^5.1.0"
     }
 }

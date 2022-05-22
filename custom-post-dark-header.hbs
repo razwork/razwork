@@ -1,34 +1,20 @@
-{{!< default}}
+{{#contentFor "header-class"}}header-dark{{/contentFor}}
+
+{{!< default }}
 
 {{#post}}
 
+
+
 <article class="gh-article {{post_class}}">
 
-    <header class="gh-header gh-canvas">
-        <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
+    <header class="gh-header gh-canvas header-dark">
         <h1 class="gh-title">{{title}}</h1>
 
         {{#if custom_excerpt}}
         <p class="gh-excerpt">{{custom_excerpt}}</p>
         {{/if}}
 
-        {{#if feature_image}}
-        <figure class="gh-feature-image">
-            <img
-                srcset="{{img_url feature_image size="s"}} 300w,
-                        {{img_url feature_image size="m"}} 600w,
-                        {{img_url feature_image size="l"}} 1000w,
-                        {{img_url feature_image size="xl"}} 2000w"
-                sizes="(max-width: 1000px) 1000px, 2000px"
-                loading="lazy"
-                src="{{img_url feature_image size="xl"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-            />
-            {{#if feature_image_caption}}
-                <figcaption>{{feature_image_caption}}</figcaption>
-            {{/if}}
-        </figure>
-        {{/if}}
     </header>
 
     <div class="gh-content gh-canvas">
@@ -36,7 +22,7 @@
     </div>
 
     <footer class="gh-footer gh-canvas">
-
+        <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
         <div class="gh-post-authors">
             Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
         </div>
@@ -65,3 +51,8 @@
 </aside>
 
 {{/post}}
+
+
+{{#contentFor "hzl-gallery"}}
+    <script src="{{asset "built/galleryscroll.js"}}"></script>
+{{/contentFor}}

@@ -1,0 +1,51 @@
+<header id="navbar" class="nav-wrapper {{{block "header-class"}}}">
+    <nav class="nav-inner gh-container">
+        <div class="nav-brand">
+            <a class="nav-logo" href="{{@site.url}}">
+                {{#if @site.logo}}
+                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
+                {{else}}
+                    {{@site.title}}
+                {{/if}}
+            </a>
+            <a class="mobile-menu" role="button">
+                <div class="mobile-menu-box">
+                    <div class="mobile-menu-inner"></div>
+                </div>
+            </a>
+        </div>
+        <div class="nav-menu">
+            <ul class="nav">
+            {{!-- {{navigation}} --}}
+				{{navigation}}
+            </ul>
+        </div>
+        {{#if @custom.call_to_actions}}
+        <div class="nav-actions">
+            <div class="nav-actions-list">
+                <a href="/membership">
+                    <button>
+                    {{#if @custom.primary_cta_text}}
+                        {{@custom.primary_cta_text}}
+                    {{/if}}
+                </button>
+                </a>
+                <a href="/sign-in">
+                    <button>
+                    {{#if @custom.secondary_cta_text}}
+                        {{@custom.secondary_cta_text}}
+                    {{/if}}
+                </button>
+                </a>
+                {{#if @site.facebook}}
+                <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                {{/if}}
+                {{#if @site.twitter}}
+                <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                {{/if}}
+                <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
+            </div>
+        </div>
+        {{/if}}
+    </nav>
+</header>

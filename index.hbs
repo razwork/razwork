@@ -1,15 +1,21 @@
 {{!< default}}
 
-<div class="gh-page">
-    <div class="gh-container">
-
-        <div class="gh-postfeed">
-        {{#foreach posts}}
-
+<div class="container">
+    <div class="content">
+        <div class="postfeed">
             {{> "card"}} {{!-- partials/card.hbs --}}
-
-        {{/foreach}}
-        </div>
-
+            {{> "author"}}
+        <div>
     </div>
+</div>
+
+
+<div id="rdm-post" style="display: none;">
+    {{#get "posts" limit="15" from="1" to="15"}}
+        {{#foreach posts}}
+        <ul>
+            <li><a href="{{url}}">{{title}}</a></li>
+        </ul>
+        {{/foreach}}
+    {{/get}}
 </div>

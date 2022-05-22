@@ -29,35 +29,35 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* ---------------------------------------------------------- */
 
 html,
-.gh-viewport {
+.viewport {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background: #fff;
 }
 
-.gh-main {
+.wrapper {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
 }
 
-.gh-page {
+.container {
     padding: 0 4vmin;
+}
+
+.postfeed {
+    padding: 8vmin 0;
+}
+
+.content {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .gh-article {
     padding: 8vmin 0;
-}
-
-.gh-postfeed {
-    padding: 8vmin 0;
-}
-
-.gh-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .gh-head-actions a {
@@ -83,20 +83,27 @@ html,
 /* Index
 /* ---------------------------------------------------------- */
 
-.gh-card:not(:first-child) {
+.card:not(:first-child) {
     margin: 8vmin auto 0;
 }
 
-.gh-card-link {
+.card-link {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 32px;
 }
 
-.gh-card-image {
+.card-image {
     width: 100%;
-    max-height: 700px;
+    max-width: 270px;
     object-fit: cover;
-    margin-bottom: 4vmin;
+    border-radius: 12px;
+    /* margin-bottom: 4vmin; */
+}
+
+.card.article-list .card-image {
+    width: 90px;
+    height: 90px;
 }
 
 .gh-card-meta {
@@ -109,10 +116,12 @@ html,
     opacity: 0.8;
 }
 
-.gh-card-content {
-    max-width: 720px;
+.card-content {
+    display: grid;
+    gap: 24px;
+    max-width: 100%;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     font-size: 1.6rem;
 }
 
@@ -165,6 +174,19 @@ html,
 .gh-header {
     padding: 0 0 8vmin 0;
     text-align: center;
+}
+
+.header-dark {
+    background: #121926;
+    color: #FCFCFD;
+}
+
+.header-dark.nav-current {
+    color: red;
+}
+
+.scroll-gallery-container.dark {
+    background: #121926;
 }
 
 .gh-post-meta {
@@ -235,4 +257,68 @@ html,
     .gh-author-meta {
         font-size: 1.6rem;
     }
+}
+
+/* Scroll gallery */
+
+.scroll-gallery-container {
+    width: 100%;
+    grid-column: 1/-1;
+    overflow: hidden;
+}
+
+  .scroll-gallery-images {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140vw;
+    max-height: 400px;
+    padding-bottom: 80px;
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+  }
+  .scroll-gallery-images img {
+    width: 100%;
+    max-height: calc(100vh - 60%);
+    object-fit: cover;
+    margin: 0 0.85em;
+    cursor: pointer;
+  }
+  .scroll-gallery-images.rounded img {
+    border-radius: 1em;
+  }
+  .scroll-gallery-images.elevate img {
+    box-shadow: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
+  }
+
+
+  .kg-gallery-image{
+transform: scale(100%);
+}
+  /* .fullscreen::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    background: #fff;
+    cursor: pointer;
+} */
+
+.fullscreen > img {
+    position: relative;
+    z-index: 2;
+}
+
+.fullscreen {
+    display: block;
+    position: fixed;
+    top: 0;
+    max-width: 100%;
+    height: 100vmin;
+    padding: 4vmin;
+    transition: transform .15s ease-in;
 }

@@ -1,0 +1,13 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: Ghost server
+    before: echo 'npm install ghost-cli@latest -g' # runs during prebuild
+    command: echo 'ghost start'
+  - name: Yarn Gulp
+    init: echo 'cd content/themes/huddle-theme && yarn install' # runs during prebuild
+    command: echo 'yarn dev'
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 3000
+    onOpen: open-preview
